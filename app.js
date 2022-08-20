@@ -1,5 +1,6 @@
 const express = require('express'); //import express
 const connectDB = require('./config/db') //import connected db to main app
+const bodyParser = require('body-parser')
 
 // routes
 const books = require('./routes/api/books');
@@ -9,6 +10,9 @@ const app = express();
 
 // Connect Database
 connectDB()
+
+//Parses incoming json request body
+app.use(bodyParser.json())
 
 // use routes
 app.use('/api/books', books)
