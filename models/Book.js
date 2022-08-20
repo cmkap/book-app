@@ -13,12 +13,17 @@ const bookSchema = new mongoose.Schema({
         required: true
     },
     isbn: {
-        type: String,
-        required: true
+        type: Number,
+        required: true,
+        immutable: true,
+        min:1,
+        max: 50
     },
     author: {
         type: String,
-        required: true
+        required: true,
+        minLenght: 1,
+        maxLenght: 30 
     },
     description: {
         type: String
@@ -31,7 +36,7 @@ const bookSchema = new mongoose.Schema({
     },
     update_date: {
         type: Date,
-        default: Date.now
+        default: () => Date.now()
     }
 })
 
