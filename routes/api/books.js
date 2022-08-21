@@ -17,7 +17,7 @@ router.get('/', async(req, res) => {
         const booksDataResponse = await Book.find()
         res.json(booksDataResponse)
     } catch (error) {
-        res.status(404).json({ nobooksfound: 'No Books found'})
+        res.status(404).json({ nobooksfound: 'No Books found: '+error.message})
     }
 })
 
