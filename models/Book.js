@@ -17,13 +17,13 @@ const bookSchema = new mongoose.Schema({
         required: true,
         immutable: true,
         min:1,
-        max: 50
+        max:10000000000000
     },
     author: {
         type: String,
         required: true,
-        minLenght: 1,
-        maxLenght: 30 
+        minLength: 1,
+        maxLength: 30 
     },
     description: {
         type: String
