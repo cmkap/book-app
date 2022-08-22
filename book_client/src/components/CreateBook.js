@@ -83,6 +83,63 @@ class CreateBook extends Component {
                                 </div>
                                 <br />
 
+                                <div className='form'>
+                                    <input 
+                                        type='text'
+                                        placeholder='ISBN'
+                                        name='isbn'
+                                        className='form-control'
+                                        value={this.state.isbn}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                                <div className='form-group'>
+                                    <input 
+                                        type='text'
+                                        placeholder='Author'
+                                        name='author'
+                                        className='form-control'
+                                        value={this.state.author}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                                <div className='form-group'>
+                                    <input 
+                                        type='text'
+                                        placeholder='Describe this book'
+                                        name='description'
+                                        className='form-control'
+                                        value={this.state.description}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                                <div className='form-group'>
+                                    <input 
+                                        type='date'
+                                        placeholder='published_date'
+                                        name='published_date'
+                                        className='form-control'
+                                        value={this.state.published_date}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+                                <div className='form-goup'>
+                                    <input 
+                                        type="text"
+                                        placeholder="Publisher of this Book"
+                                        name='publisher'
+                                        value={this.state.publisher}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                                <input 
+                                    type='submit'
+                                    className='btn btn-outline-warning btn-block mt-4'
+                                />
                             </form>
                         </div>
                     </div>
