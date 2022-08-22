@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../App.css'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-import BookCard from ',/BookCaard';
+import BookCard from './BookCard';
 
 
 class ShowBookList extends Component {
