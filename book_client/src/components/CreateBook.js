@@ -149,4 +149,5 @@ class CreateBook extends Component {
     }
 }
 
-module.exports = CreateBook;
+
+export default CreateBook;
