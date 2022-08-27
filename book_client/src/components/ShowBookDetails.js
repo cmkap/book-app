@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../App.css'
 import axios from 'axios'
 
@@ -12,9 +12,11 @@ class ShowBookDetails extends Component {
     }
 
     componentDidMount() {
+
+        let { id } = useParams
         // console.log("Print id: " + this.props.match.params.id);
         axios
-            .get('http://localhost:8082/api/books/'+this.props.match.params.id)
+            .get('http://localhost:8082/api/books/'+id)
             .then(res => {
                 // console.log("Print-showBookDetails-API-response: " + res.data);
                 this.setState({
@@ -24,6 +26,17 @@ class ShowBookDetails extends Component {
                     console.log("Error from ShowBookDetails");
                 })
 
+            })
+    }
+
+    onDeleteClick(id) {
+        axios
+            .delete('http://localhost:8082/api/bookks/' + id)
+            .then(res => {
+                this.props.history.push("/");
+            })
+            .catch(err => {
+                console.log("Error from ShowBookDetails_deleteClick");
             })
     }
     render() {
