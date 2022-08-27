@@ -16,7 +16,7 @@ class App extends Component {
         <Routes>
           <Route exact path='/' element={<ShowBookList />} />
           <Route path='/create-book' element={<CreateBook />} />
-          <Route path='/edit-book/:id' component={UpdateBookInfo} />
+          <Route path='/edit-book/:id' elementt={<UpdateBookInfo />} />
           <Route path='/show-book/:id' element={<ShowBookDetails />} />
         </Routes>
       </Router>
