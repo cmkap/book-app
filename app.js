@@ -1,6 +1,7 @@
 const express = require('express'); //import express
 const connectDB = require('./config/db') //import connected db to main app
-const bodyParser = require('body-parser')
+var cors = require('cors')
+//const bodyParser = require('body-parser')  // express.json is preferred as it already built in
 
 // routes
 const books = require('./routes/api/books');
@@ -11,8 +12,15 @@ const app = express();
 // Connect Database
 connectDB()
 
+// cors
+app.use(cors({ origin: true, credentials: true }));
+
 //Parses incoming json request body
-app.use(bodyParser.json())
+//app.use(bodyParser.json())
+
+// Init Middleware
+app.use(express.json({ extended: false }))
+
 
 // use routes
 app.use('/api/books', books)
