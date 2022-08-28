@@ -101,7 +101,7 @@ export class UpdateBookInfo extends Component {
                             <label htmlFor='isbn'>ISBN</label>
                             <input
                                 type='text'
-                                placeholders='ISBN'
+                                placeholder='ISBN'
                                 name='isbn'
                                 className='form-control'
                                 value={this.state.isbn}
