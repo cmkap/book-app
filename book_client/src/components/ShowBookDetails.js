@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { withRouter } from '../withRouter'
 import '../App.css'
 import axios from 'axios'
 
@@ -13,32 +14,32 @@ class ShowBookDetails extends Component {
 
     componentDidMount() {
 
-        let { id } = useParams
+        
         // console.log("Print id: " + this.props.match.params.id);
         axios
-            .get('http://localhost:8082/api/books/'+id)
+            .get('http://localhost:8082/api/books/'+ this.props.params.id)
             .then(res => {
                 // console.log("Print-showBookDetails-API-response: " + res.data);
                 this.setState({
                     book: res.data
                 })
-                .catch(err => {
-                    console.log("Error from ShowBookDetails");
-                })
-
+            })
+            .catch(err => {
+                console.log("Error from ShowBookDetails");
             })
     }
 
     onDeleteClick(id) {
         axios
-            .delete('http://localhost:8082/api/bookks/' + id)
+            .delete('http://localhost:8082/api/bookks/' + this.props.params.id)
             .then(res => {
-                this.props.history.push("/");
+                this.props.navigate("/");
             })
             .catch(err => {
                 console.log("Error from ShowBookDetails_deleteClick");
             })
     }
+
     render() {
 
         const book = this.state.book;
@@ -133,4 +134,4 @@ class ShowBookDetails extends Component {
     }
 }
 
-export default ShowBookDetails;
+export default withRouter(ShowBookDetails);

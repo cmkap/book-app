@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { withRouter } from '../withRouter';
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../App.css';
 
@@ -17,11 +18,11 @@ export class UpdateBookInfo extends Component {
     }
     
     componentDidMount() {
-        let { id } = useParams
-        console.log("Print id: " + id)
+        
+        console.log("Print id: " + this.props.params.id)
 
         axios
-            .get('http://localhost:8082/api/books/' + id)
+            .get('http://localhost:8082/api/books/' + this.props.params.id)
             .then(res => {
                 // this.setState({...this.state, book: res.data})
                 this.setState({
@@ -54,9 +55,9 @@ export class UpdateBookInfo extends Component {
         }
 
         axios
-            .put('http://localhost:8082/api/books/'+this.props.match.params.id, data)
+            .put('http://localhost:8082/api/books/'+this.props.params.id, data)
             .then(res => {
-                this.props.history.push('/show-book'+this.props.match.params.id);
+                this.props.navigate('/show-book'+this.props.params.id);
             })
             .catch(err => {
                 console.log('Error in UpdateBookInfo')
@@ -167,4 +168,4 @@ export class UpdateBookInfo extends Component {
     }
 }
 
-export default UpdateBookInfo
+export default withRouter(UpdateBookInfo)
