@@ -9,7 +9,7 @@ function BookCard(props) {
 
   return (
     <div className='card-container'>
-        <img src='https://commapress.co.uk/books/the-book-of-cairo/cairo-provisional-v3/image%2Fspan3' alt=''/>
+        <img src='https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2Fmax_width_960%2Fpublic%2Fblogs%2FsJ3CT4V.gif%3Fitok%3D0SCQuwls&w=2048&q=90' alt=''/>
         <div className='desc'>
             <h2>
                 <Link to={`/show-book/${book._id}`}>

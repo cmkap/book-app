@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from '../withRouter'
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
@@ -11,7 +12,7 @@ class CreateBook extends Component {
             isbn:'',
             author:'',
             description:'',
-            published_date:'',
+            publish_date:'',
             publisher:''
         };
     }
@@ -21,6 +22,8 @@ class CreateBook extends Component {
     };
 
     onSubmit = e => {
+
+        
         e.preventDefault();
 
         const data = {
@@ -28,26 +31,29 @@ class CreateBook extends Component {
             isbn: this.state.isbn,
             author: this.state.author,
             description: this.state.description,
-            published_date: this.state.published_date,
+            publish_date: this.state.publish_date,
             publisher: this.state.publisher
         };
 
+        console.log(data)
+
         // Promised-based HTTP Client for node.js and the browser- isomorphice= run in both
+        // http://localhost:8082/api/books
         axios
-            .post('http:localhost:8082/api/books', data)
+            .post('http://localhost:8082/api/books', data)
             .then(res => {
                 this.setState({
                     title:'',
                     isbn:'',
                     author:'',
                     description:'',
-                    published_date:'',
+                    publish_date:'',
                     publisher:''
                 })
-                this.props.history.push('/');
+               this.props.navigate('/');
             })
             .catch(err => {
-                console.log('Error in CreateBook')
+                console.log(err.response, 'Error in CreateBook')
             })
     };
 
@@ -119,10 +125,10 @@ class CreateBook extends Component {
                                 <div className='form-group'>
                                     <input 
                                         type='date'
-                                        placeholder='published_date'
-                                        name='published_date'
+                                        placeholder='publish_date'
+                                        name='publish_date'
                                         className='form-control'
-                                        value={this.state.published_date}
+                                        value={this.state.publish_date}
                                         onChange={this.onChange}
                                     />
                                 </div>
@@ -150,4 +156,4 @@ class CreateBook extends Component {
 }
 
 
-export default CreateBook;
+export default withRouter(CreateBook);
