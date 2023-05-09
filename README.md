@@ -17,7 +17,7 @@ This is a book application built using the MERN (MongoDB, Express, React, Node.j
 3. Run `npm start` to start the server.
 4. Navigate to the client directory (`cd client`).
 5. Run `npm start` to start the client.
-6. Open your browser and go to `http://localhost:8082` to use the application.
+6. Open your browser and go to `http://localhost:3000` to use the application.
 
 ## Features
 
